@@ -1,13 +1,13 @@
 :root {
-  --gannett-blue: #EF3E26;
+  --cr-red: #EF3E26;
   --gannett-light-blue: #B9E1FF;
 	--gannett-dark-blue: #0A32A0;
 	--gannett-dark-grey: #404040;
 	--gannett-light-grey: #d7d7d7;
-	--pure-white: #f7f5f0;
+	--cr-off-white: #f7f5f0;
 }
 
-* {
+.interactive-container {
   font-family: 'Unify Sans', sans-serif;
 }
 
@@ -40,12 +40,12 @@ body {
 
 .interactive-container {
   background-color: var(--gannett-dark-grey);
-  color: var(--pure-white);
+  color: var(--cr-off-white);
   /*   padding-top: 20px;  */
 
   min-height: 100vh;
-  border-top: 5px solid var(--gannett-blue);
-  border-bottom: 5px solid var(--gannett-blue);
+  border-top: 5px solid var(--cr-red);
+  border-bottom: 5px solid var(--cr-red);
 }
 
 .interactive-container h1 {
@@ -53,7 +53,7 @@ body {
   margin: 0 auto 20px auto;
   padding: 20px 0;
   font-size: 2.5rem;
-  background-color: var(--gannett-blue);
+  background-color: var(--cr-red);
   line-height: 1;
   box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 }
@@ -149,8 +149,8 @@ body {
 }
 
 .cta button {
-  background-color: var(--gannett-blue);
-  color: var(--pure-white);
+  background-color: var(--cr-red);
+  color: var(--cr-off-white);
   border: 3px solid;
   padding: 3%;
   border-radius: 20px;
@@ -168,7 +168,7 @@ body {
 
 .county-dropdowns select {
   background: transparent;
-  color: var(--pure-white);
+  color: var(--cr-off-white);
   border: 2px solid;
   border-radius: 5px;
   margin: 20px auto;
@@ -201,7 +201,7 @@ body {
 }
 
 .card {
-  background-color: var(--pure-white);
+  background-color: var(--cr-off-white);
   color: var(--gannett-dark-grey);
   width: 90%;
   height: 95%!important;
@@ -211,11 +211,12 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  border: 3px solid var(--gannett-blue);
+  border: 3px solid var(--cr-red);
   box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 }
 
 .card p {
+  color: var(--gannett-dark-grey);
   width: 85%;
 }
 
@@ -225,7 +226,8 @@ body {
   margin-bottom: 0;
   padding-bottom: 5%;
   width: 100%;
-  border-bottom: 3px solid var(--gannett-blue);
+  border-bottom: 3px solid var(--cr-red);
+  color: var(--gannett-dark-grey);
 }
 
 .card hr {
@@ -264,7 +266,7 @@ body {
 }
 
 .dot0 {
-  background-color: var(--gannett-blue);
+  background-color: var(--cr-red);
 }
 
 .left-arrow {
@@ -325,13 +327,13 @@ body {
   border-radius: 0;
   height: 100%;
   width: 100px;
-  background-color: var(--pure-white);
+  background-color: var(--cr-off-white);
   border-right: 3px solid var(--gannett-dark-grey);
 }
 
 .tab button.selected {
   background-color: var(--gannett-dark-grey);
-  color: var(--pure-white);
+  color: var(--cr-off-white);
 }
 
 .hide {
@@ -347,8 +349,8 @@ body {
 }
 
 .story-nav a {
-  color: var(--pure-white);
-  border-bottom: 3px solid var(--gannett-blue);
+  color: var(--cr-off-white);
+  border-bottom: 3px solid var(--cr-red);
   text-decoration: none;
 }
 /* Responsive */

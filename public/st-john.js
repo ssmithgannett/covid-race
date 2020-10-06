@@ -15,7 +15,7 @@ jQuery.ajax({
   type : 'GET',
   success : function(usat) {
     pullData(usat);
-
+    console.log(usat);
     function alphabetize(a, b) {
 
       a = a.toLowerCase();
@@ -148,8 +148,8 @@ function pullData(usat) {
 
     var cases = usat[i].cases_09012020;
     var casesStr = parseFloat(cases).toLocaleString('en');
-    var deaths = usat[i].deaths_09012020;
-    var deathRate = percent(deaths,cases);
+    var deathRate = usat[i].deathrate_per10000_09012020;
+
 
     var asianPop = usat[i].asian;
     var blackPop = usat[i].black;
@@ -188,7 +188,7 @@ function pullData(usat) {
       //set card data for fcounty
 
       //var0 (cases and deaths)
-      jQuery('.var0 .fcounty-context').text(deathRate + ' percent');
+      jQuery('.var0 .fcounty-context').text(deathRate + ' per 10,000 population');
       jQuery('.var0 .fcounty-context2').text(percent(blackPop,totalPop) + ' percent');
 
 
@@ -303,8 +303,7 @@ jQuery.ajax({
 
       var cases = usat[i].cases_09012020;
       var casesStr = parseFloat(cases).toLocaleString('en');
-      var deaths = usat[i].deaths_09012020;
-      var deathRate = percent(deaths,cases);
+      var deathRate = usat[i].deathrate_per10000_09012020;
 
       var asianPop = usat[i].asian;
       var blackPop = usat[i].black;
@@ -344,7 +343,7 @@ jQuery.ajax({
 
 
         //var0 (cases and deaths)
-        jQuery('.var0 .ecounty-context').text(deathRate + ' percent');
+        jQuery('.var0 .ecounty-context').text(deathRate + ' per 10,000 population');
         jQuery('.var0 .ecounty-context2').text(percent(blackPop,totalPop) + ' percent');
 
 
@@ -476,31 +475,31 @@ el.on('scroll', function() {
     //card1 selected
     if(jQuery('.var0 .card').isOnScreen() == true && jQuery('.var1 .card').isOnScreen() == true) {
       jQuery('.dot0').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot1').css('background-color','var(--gannett-blue)');
+      jQuery('.dot1').css('background-color','var(--cr-red)');
     }
 
     //card2 selected
     if(jQuery('.var1 .card').isOnScreen() == true && jQuery('.var2 .card').isOnScreen() == true) {
       jQuery('.dot1').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot2').css('background-color','var(--gannett-blue)');
+      jQuery('.dot2').css('background-color','var(--cr-red)');
     }
 
     //card3 selected
     if(jQuery('.var2 .card').isOnScreen() == true && jQuery('.var3 .card').isOnScreen() == true) {
       jQuery('.dot2').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot3').css('background-color','var(--gannett-blue)');
+      jQuery('.dot3').css('background-color','var(--cr-red)');
     }
 
     //card4 selected
     if(jQuery('.var3 .card').isOnScreen() == true && jQuery('.var4 .card').isOnScreen() == true) {
       jQuery('.dot3').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot4').css('background-color','var(--gannett-blue)');
+      jQuery('.dot4').css('background-color','var(--cr-red)');
     }
 
     //card5 selected
     if(jQuery('.var4 .card').isOnScreen() == true && jQuery('.var5 .card').isOnScreen() == true) {
       jQuery('.dot4').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot5').css('background-color','var(--gannett-blue)');
+      jQuery('.dot5').css('background-color','var(--cr-red)');
     }
 
 
@@ -513,31 +512,31 @@ el.on('scroll', function() {
     //card0 selected
     if(jQuery('.var0 .card').isOnScreen() == true && jQuery('.var1 .card').isOnScreen() == true) {
       jQuery('.dot1').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot0').css('background-color','var(--gannett-blue)');
+      jQuery('.dot0').css('background-color','var(--cr-red)');
     }
 
     //card1 selected
     if(jQuery('.var1 .card').isOnScreen() == true && jQuery('.var2 .card').isOnScreen() == true) {
       jQuery('.dot2').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot1').css('background-color','var(--gannett-blue)');
+      jQuery('.dot1').css('background-color','var(--cr-red)');
     }
 
     //card2 selected
     if(jQuery('.var2 .card').isOnScreen() == true && jQuery('.var3 .card').isOnScreen() == true) {
       jQuery('.dot3').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot2').css('background-color','var(--gannett-blue)');
+      jQuery('.dot2').css('background-color','var(--cr-red)');
     }
 
     //card3 selected
     if(jQuery('.var3 .card').isOnScreen() == true && jQuery('.var4 .card').isOnScreen() == true) {
       jQuery('.dot4').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot3').css('background-color','var(--gannett-blue)');
+      jQuery('.dot3').css('background-color','var(--cr-red)');
     }
 
     //card4 selected
     if(jQuery('.var4 .card').isOnScreen() == true && jQuery('.var5 .card').isOnScreen() == true) {
       jQuery('.dot5').css('background-color','var(--gannett-light-grey)');
-      jQuery('.dot4').css('background-color','var(--gannett-blue)');
+      jQuery('.dot4').css('background-color','var(--cr-red)');
     }
 
     //card5 selected
@@ -570,31 +569,31 @@ jQuery('.var-pagination .right-arrow').on('click', function() {
   //card1 selected
   if(jQuery('.var0 .card').isOnScreen() == true && jQuery('.var1 .card').isOnScreen() == true) {
     jQuery('.dot0').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot1').css('background-color','var(--gannett-blue)');
+    jQuery('.dot1').css('background-color','var(--cr-red)');
   }
 
   //card2 selected
   if(jQuery('.var1 .card').isOnScreen() == true && jQuery('.var2 .card').isOnScreen() == true) {
     jQuery('.dot1').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot2').css('background-color','var(--gannett-blue)');
+    jQuery('.dot2').css('background-color','var(--cr-red)');
   }
 
   //card3 selected
   if(jQuery('.var2 .card').isOnScreen() == true && jQuery('.var3 .card').isOnScreen() == true) {
     jQuery('.dot2').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot3').css('background-color','var(--gannett-blue)');
+    jQuery('.dot3').css('background-color','var(--cr-red)');
   }
 
   //card4 selected
   if(jQuery('.var3 .card').isOnScreen() == true && jQuery('.var4 .card').isOnScreen() == true) {
     jQuery('.dot3').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot4').css('background-color','var(--gannett-blue)');
+    jQuery('.dot4').css('background-color','var(--cr-red)');
   }
 
   //card5 selected
   if(jQuery('.var4 .card').isOnScreen() == true && jQuery('.var5 .card').isOnScreen() == true) {
     jQuery('.dot4').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot5').css('background-color','var(--gannett-blue)');
+    jQuery('.dot5').css('background-color','var(--cr-red)');
   }
 });
 
@@ -612,30 +611,30 @@ jQuery('.var-pagination .left-arrow').on('click', function() {
   //card0 selected
   if(jQuery('.var0 .card').isOnScreen() == true && jQuery('.var1 .card').isOnScreen() == true) {
     jQuery('.dot1').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot0').css('background-color','var(--gannett-blue)');
+    jQuery('.dot0').css('background-color','var(--cr-red)');
   }
 
   //card1 selected
   if(jQuery('.var1 .card').isOnScreen() == true && jQuery('.var2 .card').isOnScreen() == true) {
     jQuery('.dot2').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot1').css('background-color','var(--gannett-blue)');
+    jQuery('.dot1').css('background-color','var(--cr-red)');
   }
 
   //card2 selected
   if(jQuery('.var2 .card').isOnScreen() == true && jQuery('.var3 .card').isOnScreen() == true) {
     jQuery('.dot3').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot2').css('background-color','var(--gannett-blue)');
+    jQuery('.dot2').css('background-color','var(--cr-red)');
   }
 
   //card3 selected
   if(jQuery('.var3 .card').isOnScreen() == true && jQuery('.var4 .card').isOnScreen() == true) {
     jQuery('.dot4').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot3').css('background-color','var(--gannett-blue)');
+    jQuery('.dot3').css('background-color','var(--cr-red)');
   }
 
   //card4 selected
   if(jQuery('.var4 .card').isOnScreen() == true && jQuery('.var5 .card').isOnScreen() == true) {
     jQuery('.dot5').css('background-color','var(--gannett-light-grey)');
-    jQuery('.dot4').css('background-color','var(--gannett-blue)');
+    jQuery('.dot4').css('background-color','var(--cr-red)');
   }
 });
