@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <title></title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+
+  </head>
+  <body>
+
+
+    <div class="body-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare eros porttitor, tristique orci vel, convallis nisl. Nulla pulvinar, felis at mollis facilisis, tortor mauris volutpat tortor, non accumsan risus magna a ipsum.</p>
+      <p>Sed elementum, massa euismod molestie tristique, libero lectus placerat elit, vel suscipit ante dolor et ex. Nullam mollis ex risus, vel efficitur lorem dictum quis. Pellentesque quis vulputate justo, ultricies ultricies felis.</p>
+      <p>Duis maximus nibh sed mauris tincidunt euismod. Quisque nec posuere mauris, sit amet vehicula nulla. Maecenas ultrices erat enim, eget porta nunc tristique vel. Aenean facilisis est sit amet diam commodo lobortis. Duis feugiat magna purus, nec convallis dui sagittis non.</p>
+      <p>Aliquam sed ex scelerisque, consectetur ante sed, iaculis libero. Proin dapibus lacus at nisi consectetur, quis vehicula quam dapibus. Proin tincidunt, urna ultrices mattis maximus, lacus leo elementum lorem, id mollis elit sapien ultrices ex. Morbi pellentesque est ac tellus faucibus tempor. Aliquam sit amet urna nec massa viverra mollis ut et purus.</p>
+      <p>Vestibulum nec cursus lorem, commodo consequat risus. Nulla condimentum nulla ornare arcu mattis egestas. Mauris ac tincidunt tortor, ac consequat nulla. Fusce sit amet nulla sed urna auctor ultrices id sed felis.</p>
+      <p>Ut consectetur, est sed ultricies lobortis, turpis ipsum convallis est, varius interdum sem dolor nec felis. Aliquam eget vestibulum ipsum. Aenean suscipit ultrices sapien non elementum. Donec id sapien rutrum, aliquet leo congue, elementum orci. Fusce commodo mi in convallis vulputate. Curabitur at dui vel urna efficitur mattis nec tincidunt ligula. Donec at sollicitudin magna.</p>
+    </div>
+
+    <div class="container">
+    <div class="wrap">
+
+
+      <div class="intro">
+        <h1>By the Numbers</h1>
+        <h2 class="county-name"></h2>
+
+        <button id="open-county-sel" type="button" name="button">See how your county compares</button>
+
+        <div class="explainer">
+          <p>This can be a brief explainer text, maybe rounding out the general information about Essex. Lorem ipum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod.</p>
+        </div>
+
+        <div class="selections">
+          <div class="sel-wrap">
+            <select class="state-selection">
+              <option>Select a state</option>
+              <option value="Alabama">Alabama</option>
+              <option value="Alaska">Alaska</option>
+              <option value="Arizona">Arizona</option>
+              <option value="Arkansas">Arkansas</option>
+              <option value="California">California</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Connecticut">Connecticut</option>
+              <option value="Delaware">Delaware</option>
+              <option value="Florida">Florida</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Idaho">Idaho</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Iowa">Iowa</option>
+              <option value="Kansas">Kansas</option>
+              <option value="Kentucky">Kentucky</option>
+              <option value="Louisiana">Louisiana</option>
+              <option value="Maine">Maine</option>
+              <option value="Maryland">Maryland</option>
+              <option value="Maine">Massachusetts</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Mississippi">Mississippi</option>
+              <option value="Missouri">Missouri</option>
+              <option value="Montana">Montana</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Nevada">Nevada</option>
+              <option value="New Hampshire">New Hampshire</option>
+              <option value="New Jersey">New Jersey</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="New York">New York</option>
+              <option value="North Carolina">North Carolina</option>
+              <option value="North Dakota">North Dakota</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Oklahoma">Oklahoma</option>
+              <option value="Oregon">Oregon</option>
+              <option value="Pennsylvania">Pennsylvania</option>
+              <option value="Rhode Island">Rhode Island</option>
+              <option value="South Carolina">South Carolina</option>
+              <option value="South Dakota">South Dakota</option>
+              <option value="Tennessee">Tennessee</option>
+              <option value="Texas">Texas</option>
+              <option value="Utah">Utah</option>
+              <option value="Vermont">Vermont</option>
+              <option value="Virginia">Virginia</option>
+              <option value="Washington">Washington</option>
+              <option value="West Virginia">West Virginia</option>
+              <option value="Wisconsin">Wisconsin</option>
+              <option value="Wyoming">Wyoming</option>
+          </select>				<!-- states dropdown collapsed -->
+            <select class="county-select">
+              <option>Select a county</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="variables vars-lg">
+        <button type="button" name="button">Uninsured</button>
+        <button type="button" name="button">Median Income</button>
+        <button type="button" name="button">Poverty</button>
+        <button type="button" name="button">Home Ownership</button>
+        <button type="button" name="button">Segregation</button>
+      </div>
+
+      <div class="counties counties-lg">
+
+
+        <div class="featCounty">
+          <h2 class="county-label2 county-name">County</h2>
+
+          <div class="pop-breakdown">
+            <div class="vars-label">
+
+              <p>Population</p>
+            </div>
+            <div class="stats">
+              <p class="population"></p>
+            <!--  <p class="asian-pop"><span></span>% Asian</p>
+              <p class="black-pop"><span></span>% Black</p>
+              <p class="hawaiian-pop"><span></span>% Hawaiian</p>
+              <p class="hispanic-pop"><span></span>% Hispanic</p>
+              <p class="multi-pop"><span></span>% Multi-race</p>
+              <p class="native-pop"><span></span>% Native American</p>
+              <p class="other-pop"><span></span>% Other</p>
+              <p class="white-pop"><span></span>% White</p>-->
+            </div>
+          </div>
+
+          <div class="standard-vars">
+
+            <div class="vars-label">
+
+              <p>COVID-19 Cases</p>
+            </div>
+            <div class="stats">
+              <p class="case-rate"></p>
+              <p class="death-rate"></p>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="your-county">
+            <h2 class="county-label2 county-name2">County</h2>
+
+            <div class="pop-breakdown">
+              <div class="vars-label">
+
+                <p>Population</p>
+              </div>
+              <div class="stats">
+                <p class="population2"></p>
+              <!--  <p class="asian-pop2"><span></span>% Asian</p>
+                <p class="black-pop2"><span></span>% Black</p>
+                <p class="hawaiian-pop2"><span></span>% Hawaiian</p>
+                <p class="hispanic-pop2"><span></span>% Hispanic</p>
+                <p class="multi-pop2"><span></span>% Multi-race</p>
+                <p class="native-pop2"><span></span>% Native American</p>
+                <p class="other-pop2"><span></span>% Other</p>
+                <p class="white-pop2"><span></span>% White</p>-->
+              </div>
+            </div>
+
+
+          <div class="standard-vars">
+            <div class="vars-label">
+
+              <p>COVID-19 Cases</p>
+            </div>
+
+
+            <div class="stats">
+              <p class="case-rate2"></p>
+              <p class="death-rate2"></p>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <div class="variables vars-sm">
+        <!--
+<div class="left-arrow">
+          <div class="arrow"></div>
+
+        </div>
+        <div class="fade-left"></div>-->
+
+
+        <nav>
+          <ul>
+            <li value="Uninsured">Uninsured</li>
+            <li value="Median Income">Median Income</li>
+            <li value="Poverty">Poverty</li>
+            <li value="Home Ownership">Home Ownership</li>
+            <li value="Segregation">Segregation</li>
+          </ul>
+        </nav>
+        <!--
+<div class="fade-right"></div>
+        <div class="right-arrow">
+          <div class="arrow"></div>
+
+        </div>-->
+
+
+      </div>
+
+      <div class="counties counties-sm">
+
+
+        <div class="featCounty">
+          <h2 class="county-label2 county-name">County</h2>
+
+          <div class="pop-breakdown">
+            <div class="vars-label">
+
+              <p>Population</p>
+            </div>
+            <div class="stats">
+              <p class="population"></p>
+            <!--  <p class="asian-pop"><span></span>% Asian</p>
+              <p class="black-pop"><span></span>% Black</p>
+              <p class="hawaiian-pop"><span></span>% Hawaiian</p>
+              <p class="hispanic-pop"><span></span>% Hispanic</p>
+              <p class="multi-pop"><span></span>% Multi-race</p>
+              <p class="native-pop"><span></span>% Native American</p>
+              <p class="other-pop"><span></span>% Other</p>
+              <p class="white-pop"><span></span>% White</p>-->
+            </div>
+          </div>
+
+          <div class="standard-vars">
+
+            <div class="vars-label">
+
+              <p>COVID-19 Cases</p>
+            </div>
+            <div class="stats">
+              <p class="case-rate"></p>
+              <p class="death-rate"></p>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="your-county">
+            <h2 class="county-label2 county-name2">County</h2>
+
+            <div class="pop-breakdown">
+              <div class="vars-label">
+
+                <p>Population</p>
+              </div>
+              <div class="stats">
+                <p class="population2"></p>
+              <!--  <p class="asian-pop2"><span></span>% Asian</p>
+                <p class="black-pop2"><span></span>% Black</p>
+                <p class="hawaiian-pop2"><span></span>% Hawaiian</p>
+                <p class="hispanic-pop2"><span></span>% Hispanic</p>
+                <p class="multi-pop2"><span></span>% Multi-race</p>
+                <p class="native-pop2"><span></span>% Native American</p>
+                <p class="other-pop2"><span></span>% Other</p>
+                <p class="white-pop2"><span></span>% White</p>-->
+              </div>
+            </div>
+
+
+          <div class="standard-vars">
+            <div class="vars-label">
+
+              <p>COVID-19 Cases</p>
+            </div>
+
+
+            <div class="stats">
+              <p class="case-rate2"></p>
+              <p class="death-rate2"></p>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <div class="context">
+        <p>
+          While your county had <span class="case-rate2"></span> COVID-19 cases (<span class="case-percent2"></span> percent of the population), Essex County, NJ had <span class="case-rate">XXX</span> (or <span class="case-percent"></span> percent), making them one of the worst hit in the country. Of those infected in Essex County, <span class="death-rate">xxx</span> percent died from COVID-19, while <span class="death-rate2"></span> percent of cases in your county died from the disease.
+        </p>
+      </div>
+
+    </div><!-- .wrap -->
+    </div><!-- .container -->
+
+       <div class="body-copy">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare eros porttitor, tristique orci vel, convallis nisl. Nulla pulvinar, felis at mollis facilisis, tortor mauris volutpat tortor, non accumsan risus magna a ipsum.</p>
+      <p>Sed elementum, massa euismod molestie tristique, libero lectus placerat elit, vel suscipit ante dolor et ex. Nullam mollis ex risus, vel efficitur lorem dictum quis. Pellentesque quis vulputate justo, ultricies ultricies felis.</p>
+      <p>Duis maximus nibh sed mauris tincidunt euismod. Quisque nec posuere mauris, sit amet vehicula nulla. Maecenas ultrices erat enim, eget porta nunc tristique vel. Aenean facilisis est sit amet diam commodo lobortis. Duis feugiat magna purus, nec convallis dui sagittis non.</p>
+      <p>Aliquam sed ex scelerisque, consectetur ante sed, iaculis libero. Proin dapibus lacus at nisi consectetur, quis vehicula quam dapibus. Proin tincidunt, urna ultrices mattis maximus, lacus leo elementum lorem, id mollis elit sapien ultrices ex. Morbi pellentesque est ac tellus faucibus tempor. Aliquam sit amet urna nec massa viverra mollis ut et purus.</p>
+      <p>Vestibulum nec cursus lorem, commodo consequat risus. Nulla condimentum nulla ornare arcu mattis egestas. Mauris ac tincidunt tortor, ac consequat nulla. Fusce sit amet nulla sed urna auctor ultrices id sed felis.</p>
+      <p>Ut consectetur, est sed ultricies lobortis, turpis ipsum convallis est, varius interdum sem dolor nec felis. Aliquam eget vestibulum ipsum. Aenean suscipit ultrices sapien non elementum. Donec id sapien rutrum, aliquet leo congue, elementum orci. Fusce commodo mi in convallis vulputate. Curabitur at dui vel urna efficitur mattis nec tincidunt ligula. Donec at sollicitudin magna.</p>
+    </div>
+
+
+    <!-- import the webpage's javascript file -->
+    <script src="script.js" defer></script>
+  </body>
+</html>

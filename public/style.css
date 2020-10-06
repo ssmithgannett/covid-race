@@ -1,0 +1,434 @@
+:root {
+  --gannett-blue: #EF3E26;
+  --gannett-light-blue: #B9E1FF;
+	--gannett-dark-blue: #0A32A0;
+	--gannett-dark-grey: #404040;
+	--gannett-light-grey: #d7d7d7;
+	--pure-white: #f7f5f0;
+}
+
+* {
+  font-family: 'Unify Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.body-copy {
+  width: 90%;
+  margin: auto;
+}
+
+.down-arrow {
+  width: 7px;
+  height: 7px;
+  border-left: 3px solid;
+  border-bottom: 3px solid;
+  transform: rotate(-45deg);
+  margin-left: 10px;
+  margin-top: -3px;
+  cursor: pointer;
+}
+
+.frace-fcounty {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.interactive-container {
+  background-color: var(--gannett-dark-grey);
+  color: var(--pure-white);
+  /*   padding-top: 20px;  */
+
+  min-height: 100vh;
+  border-top: 5px solid var(--gannett-blue);
+  border-bottom: 5px solid var(--gannett-blue);
+}
+
+.interactive-container h1 {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  padding: 20px 0;
+  font-size: 2.5rem;
+  background-color: var(--gannett-blue);
+  line-height: 1;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+/* Counties */
+
+.counties h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.featured-county, .entered-county {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition-duration: 1s;
+}
+
+.featured-illo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.featured-illo img {
+  width: 50%;
+}
+
+.entered-county {
+  display: none;
+}
+
+.stats {
+  text-align: center;
+  width: 100%;
+}
+
+.stats > p {
+  margin: 0;
+  padding-bottom: 5px;
+  z-index: 3;
+  position: relative;
+  background-color: var(--gannett-dark-grey);;
+}
+
+.frace-fcounty, .frace-ecounty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  z-index: 2;
+  background-color: var(--gannett-dark-grey);
+}
+
+.exp-race {
+  padding-top: 0px;
+  /*   display: none;  */
+  opacity: 0;
+  text-align: left;
+  margin: -230px auto auto auto;
+  position: relative;
+  z-index: 1;
+  background-color: var(--gannett-dark-grey);
+  transition-duration: 1s;
+  width: 80%;
+}
+
+.exp-race p {
+  text-align: center;
+}
+
+.exp-race table {
+  width: 100%;
+}
+
+.exp-race table tr td:nth-child(2) {
+  text-align: right;
+}
+
+/* CTA */
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.cta button {
+  background-color: var(--gannett-blue);
+  color: var(--pure-white);
+  border: 3px solid;
+  padding: 3%;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+/* County dropdowns */
+
+.county-dropdowns {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.county-dropdowns select {
+  background: transparent;
+  color: var(--pure-white);
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-decoration: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url('assets/down.svg') no-repeat;
+	background-position: right center;
+	padding: 3px;
+  width: 200px;
+}
+
+/* Cards */
+
+.variables {
+  scroll-snap-type: x mandatory;
+  display: none;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  min-height: 400px;
+  margin-top: 10px;
+}
+
+.variables > div {
+	min-width: 100vw;
+	scroll-snap-align: start;
+	text-align: center;
+	position: relative;
+}
+
+.card {
+  background-color: var(--pure-white);
+  color: var(--gannett-dark-grey);
+  width: 90%;
+  height: 95%!important;
+  margin: auto;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 3px solid var(--gannett-blue);
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+}
+
+.card p {
+  width: 85%;
+}
+
+.card h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  padding-bottom: 5%;
+  width: 100%;
+  border-bottom: 3px solid var(--gannett-blue);
+}
+
+.card hr {
+  background-color: var(--gannett-dark-blue);
+  height: 5px;
+  width: 100px;
+  border: 0px solid;
+}
+
+.card p {
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+.card p span.number {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.var-pagination {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 20px;
+  width: 30%;
+  margin: auto;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-color: var(--gannett-light-grey);
+  transition-duration: .5s;
+}
+
+.dot0 {
+  background-color: var(--gannett-blue);
+}
+
+.left-arrow {
+  width: 10px;
+  height: 10px;
+  border-left: 5px solid;
+  border-bottom: 5px solid;
+  transform: rotate(45deg);
+  margin-right: 20px;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+.right-arrow {
+  width: 10px;
+  height: 10px;
+  border-left: 5px solid;
+  border-bottom: 5px solid;
+  transform: rotate(-135deg);
+  margin-left: 20px;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+.right-arrow:hover, .left-arrow:hover {
+  color: #009bff;
+}
+
+/* Explainer */
+
+.deaths-fcounty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+}
+
+.explainer {
+  border: 1px solid;
+  border-radius: 20px;
+  width: 20px;
+  margin-left: 10px;
+}
+
+
+/*  tabs  */
+
+.tab {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.tab button {
+  border: 0px solid;
+  border-radius: 0;
+  height: 100%;
+  width: 100px;
+  background-color: var(--pure-white);
+  border-right: 3px solid var(--gannett-dark-grey);
+}
+
+.tab button.selected {
+  background-color: var(--gannett-dark-grey);
+  color: var(--pure-white);
+}
+
+.hide {
+	display: none;
+}
+
+.flex {
+	display: flex;
+}
+
+.story-nav {
+  margin-top: 30px;
+}
+
+.story-nav a {
+  color: var(--pure-white);
+  border-bottom: 3px solid var(--gannett-blue);
+  text-decoration: none;
+}
+/* Responsive */
+
+/* mobile breakpoint */
+@media screen and (min-width: 426px) {
+
+  .container {
+    max-height: 90vh;
+    min-height: 60vh;
+  }
+
+  .counties {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+  }
+
+  .counties h2 {
+    width: 80%;
+  }
+
+  .featured-illo {
+    width: 50%;
+  }
+
+  .featured-illo img {
+    width: 100%;
+  }
+
+  .featured-county, .entered-county {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta button {
+    border-radius: 60px;
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
+
+  .card {
+    width: 50%;
+  }
+
+  .var-pagination {
+    width: 150px;
+  }
+
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    min-height: 100vh;
+    /*     max-height: 120vh;    */
+
+  }
+
+  .featured-illo img {
+    width: 80%;
+  }
+
+  .cta button {
+    padding: 1% 2%;
+  }
+
+  .variables {
+    scroll-snap-type: none;
+    overflow-x: hidden;
+  }
+
+  .var-pagination {
+    width: 300px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
