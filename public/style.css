@@ -426,10 +426,6 @@ body {
     width: 50%;
   }
 
-  .var-pagination {
-    width: 150px;
-  }
-
 }
 
 @media screen and (min-width: 769px) {
@@ -459,5 +455,31 @@ body {
   .dot {
     width: 10px;
     height: 10px;
+  }
+  .variables {
+    scroll-snap-type: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: none;
+    min-height: 400px;
+    margin-top: 10px;
+    width: 80%;
+    margin: auto;
+
+  }
+
+  .variables > div {
+  	min-width: 0vw;
+    width: 32%;
+  	scroll-snap-align: start;
+  	text-align: center;
+  	position: relative;
+  }
+
+  .variables div .card {
+    width: 100%;
   }
 }
