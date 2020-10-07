@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+  <style>
+
+      @font-face {
+          font-family: "Unify Sans Regular";
+          src: url("fonts/UnifySans_W_Rg.eot");
+          src: url("fonts/UnifySans_W_Rg.woff");
+      }
+
+      @font-face {
+          font-family: "Unify Sans Bold";
+          src: url("fonts/UnifySans_W_Bd.eot");
+          src: url("fonts/UnifySans_W_Bd.woff");
+      }
+
+      @font-face {
+          font-family: "Unify Serif Regular";
+          src: url("fonts/unifyserif-rg.eot");
+          src: url("fonts/unifyserif-rg.woff");
+      }
+
+      @font-face {
+          font-family: "Unify Serif Bold";
+          src: url("fonts/UnifySerif_Bd.eot");
+          src: url("fonts/UnifySerif_Bd.woff");
+      }
+
+
+* { box-sizing: border-box; }
+
+body { font-family: 'Unify Serif Regular'; background: #f7f5f0;}
+
+a {
+  color: #000;
+}
+
+/* ---- grid ---- */
+
+.grid {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: 120px;
+  height: 120px;
+  float: left;
+  border: 5px solid #f7f5f0;
+}
+
+.grid-item--width2 { width: 240px; }
+.grid-item--width3 { width: 360px; }
+.grid-item--width4 { width: 480px; }
+.grid-item--width5 { width: 600px; }
+.grid-item--width6 { width: 720px; }
+
+.grid-item--height1-5 { height: 150px; }
+.grid-item--height2 { height: 180px; }
+.grid-item--height3 { height: 240px; }
+.grid-item--height4 { height: 300px; }
+.grid-item--height4-5 { height: 330px; }
+.grid-item--height5 { height: 360px; }
+.grid-item--height6 { height: 420px; }
+.grid-item--height7 { height: 480px; }
+
+.blank {
+  background: #f7f5f0;
+  border: 0;
+}
+
+.headline {
+  text-align: right;
+  font-size: 40px;
+  color: #000;
+  font-family: 'Unify Sans Bold';
+  line-height: 1.25;
+}
+
+img {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards
+}
+
+.float-hed {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    background: rgba(255,255,255, 0.6);
+    font-family: 'Unify Sans Bold';
+    font-size: 30px;
+    opacity: 0;
+    color: #000;
+}
+
+.float-hed.mid {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    background: rgba(255,255,255, 0.6);
+    font-family: 'Unify Sans Bold';
+    font-size: 30px;
+    opacity: 0;
+    color: #000;
+    font-size: 25px;
+}
+
+.quote {
+  font-family: 'Unify Sans Bold';
+  font-size: 16px;
+}
+
+.intro {
+  font-family: 'Unify Sans Regular';
+  font-size: 16px;
+}
+
+.quote em {
+  text-align: right;
+  font-size: 12px;
+}
+
+.middle {
+  padding: 40px;
+}
+
+.label-hed {
+  width: 100%;
+  background: #ef3e26;
+  color: #fff;
+  font-family: 'Unify Sans Bold';
+  padding-left: 5px;
+  font-size: 11px;
+}
+
+.thumb-hed {
+  background: rgba(0,0,0,0.5);
+  color: #000;
+  font-family: 'Unify Sans Bold';
+  font-size: 18px;
+  background: rgba(255,255,255, 0.6);
+  position: absolute;
+  opacity: 0;
+  bottom: 20%;
+  right: 0;
+  padding: 10px;
+}
+
+.quote-mark {
+  height: 35px;
+  fill: var(--theme-color,#ef3e26);
+  margin-bottom: 5px;
+  padding-top: 10px;
+  padding-right: 100%;
+}
+
+.not-desktop {
+  display: none;
+}
+
+.not-mobile {
+  display: block;
+}
+
+@media (max-width: 575px) {
+  .grid {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .grid-item {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .label-hed {
+    opacity: 1;
+    background: #f7f5f0;
+    color: #009bff;
+  }
+
+  .headline {
+    text-align: left;
+  }
+
+  .blank {
+    display: none;
+  }
+
+  .quote-mark {
+    margin-top: 40px;
+  }
+
+  .quote {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 25px;
+  }
+
+  .quote em {
+    font-size: 20px;
+  }
+
+  .thumb-hed {
+    opacity: 1;
+    position: relative;
+    top: unset;
+    left: unset;
+    right: unset;
+    padding: 0;
+    font-size: 25px;
+  }
+
+  .float-hed {
+    opacity: 1;
+    position: relative;
+    top: unset;
+    left: unset;
+    right: unset;
+    padding: 0;
+    font-size: 25px;
+  }
+
+  .float-hed.mid {
+    position: relative;
+    top: unset;
+    left: unset;
+    right: unset;
+    padding: 0;
+    font-size: 25px;
+    opacity: 1;
+  }
+
+  .not-mobile {
+    display: none;
+  }
+
+  .not-desktop {
+    display: block;
+  }
+
+
+  .grid-item--width2 { width: 100%; }
+  .grid-item--width3 { width: 100%; }
+  .grid-item--width4 { width: 100%; }
+  .grid-item--width5 { width: 100%; }
+  .grid-item--width6 { width: 100%; }
+
+  .grid-item--height1-5 { height: 150px; }
+  .grid-item--height2 { height: 380px; }
+  .grid-item--height3 { height: 260px; }
+  .grid-item--height4 { height: 300px; }
+  .grid-item--height4-5 { height: 330px; }
+  .grid-item--height5 { height: 380px; }
+  .grid-item--height6 { height: 650px; }
+  .grid-item--height7 { height: 750px; }
+  .grid-item--height2.headline { height: 200px;}
+
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+
+  .grid {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+
+  .grid {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .headline {
+    font-size: 25px;
+  }
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula aliquet diam ac malesuada. Etiam eget tincidunt orci. Sed vehicula pellentesque neque, vel ultricies risus iaculis in. Aliquam erat volutpat. Sed eleifend non ipsum et aliquet. Aenean est urna, feugiat in fringilla eget, pharetra et lorem. Nullam quis felis quis est egestas scelerisque et non leo. Mauris rhoncus lorem non aliquam viverra. Phasellus ligula leo, condimentum consequat pharetra sit amet, lobortis non justo. Proin sit amet dolor gravida, posuere nisi quis, finibus lorem. Suspendisse quis arcu egestas, auctor tellus id, sodales velit. Fusce varius felis vel lacus tristique posuere ut vel nibh. Sed auctor diam porttitor turpis venenatis blandit. Morbi imperdiet sollicitudin velit a pharetra. Maecenas maximus in urna sed gravida. Sed vulputate, justo nec blandit ultrices, sapien diam condimentum nunc, volutpat rutrum leo nisl non justo.</p>
+
+  <span class="btn">Show the stuff</span>
+
+  <div class="collapsable">
+
+    <div class="grid">
+  <div class="grid-item grid-item--width3 grid-item--height2 headline">
+    Headline here yy over two lines yy
+    <p class="intro">Description goes here yyyyyyyyyyyyyyyyy, and here yyyyyyyyyyyyyyyyyyyyyyyyyyyy also maybe here yyyyyyyyyyyyyyyyyyyyyy</p>
+  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2 not-mobile">
+    <a href="#" class="story-link">
+      <div class="label-hed">TOXIC ENVIRONMENT | RESERVE, LA</div>
+      <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+      <img src="img/grid1.jpg">
+    </a>
+  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2 not-mobile">
+    <a href="#" class="story-link">
+      <div class="label-hed">LACK OF HEALTHCARE | MCKINLEY, NM </div>
+      <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+      <img src="img/grid3.jpg">
+    </a>
+  </div>
+  <div class="grid-item grid-item--width4 grid-item--height5">
+    <a href="#" class="story-link">
+      <span class="float-hed">Two-line headline yyyy goes right here yyyyyy</span>
+      <img src="img/grid2.jpg">
+    </a>
+  </div>
+
+  <div class="grid-item grid-item--width2 grid-item--height2 not-desktop">
+    <a href="#" class="story-link">
+      <div class="label-hed">TOXIC ENVIRONMENT | RESERVE, LA</div>
+      <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+      <img src="img/grid1.jpg">
+    </a>
+  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2 not-desktop">
+    <a href="#" class="story-link">
+      <div class="label-hed">LACK OF HEALTHCARE | MCKINLEY, NM </div>
+      <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+      <img src="img/grid3.jpg">
+    </a>
+  </div>
+
+  <div class="grid-item grid-item--width2 grid-item--height6">
+    <a href="#" class="story-link">
+      <img src="img/essex.jpg">
+    </a>
+  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2">
+    <a href="#" class="story-link">
+      <div class="label-hed">RACIST POLICIES | SAN FRANCISCO</div>
+      <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+      <img src="img/grid6.jpg">
+    </a>
+  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.9 35.3" role="img" class="quote-mark">
+        <title>Quote icon</title>
+        <style>
+          .icon--quote {
+            fill: var(--theme-color, #ef3e26);
+          }
+        </style>
+        <path class="icon icon--quote" d="M174.42,226.32c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C183.92,222.42,179.72,226.32,174.42,226.32Zm24.3,0c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C208.22,222.42,204,226.32,198.72,226.32Z" transform="translate(-164.31 -191.02)"></path>
+      </svg>
+    <span class="quote">COVID was never the great equalizer. It was the great magnifier.<br><em>- Attribution here</em></span>
+  </div>
+  <div class="grid-item blank grid-item--height4"></div>
+  <div class="grid-item grid-item--width3 grid-item--height7">
+    <a href="#" class="story-link">
+      <div class="label-hed">SEGREGATION AND SLUMS | ESSEX COUNTY, NJ</div>
+      <span class="float-hed mid">Two-line headline yy goes right here yyyy</span>
+      <img src="img/grid4.jpg">
+    </a>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.9 35.3" role="img" class="quote-mark">
+          <title>Quote icon</title>
+          <style>
+            .icon--quote {
+              fill: var(--theme-color, #ef3e26);
+            }
+          </style>
+          <path class="icon icon--quote" d="M174.42,226.32c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C183.92,222.42,179.72,226.32,174.42,226.32Zm24.3,0c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C208.22,222.42,204,226.32,198.72,226.32Z" transform="translate(-164.31 -191.02)"></path>
+        </svg>
+      <span class="quote">We've constructed American cities and suburbs in a way that basically gives white people greater access to space ... that's not just a luxury, it's a health resource.<br><em>- Attribution here</em></span>
+  </div>
+  <div class="grid-item grid-item--width4 grid-item--height5">
+    <a href="#" class="story-link">
+      <div class="label-hed">IMPOVERISHED MIGRANTS | IMPERIAL VALLEY, CA</div>
+      <span class="float-hed">Two-line headline yyyy goes right here yyyyyy</span>
+      <img src="img/covid-pic2.jpg">
+    </a>
+  </div>
+  <div class="grid-item blank grid-item--height4"></div>
+  
+
+</div>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula aliquet diam ac malesuada. Etiam eget tincidunt orci. Sed vehicula pellentesque neque, vel ultricies risus iaculis in. Aliquam erat volutpat. Sed eleifend non ipsum et aliquet. Aenean est urna, feugiat in fringilla eget, pharetra et lorem. Nullam quis felis quis est egestas scelerisque et non leo. Mauris rhoncus lorem non aliquam viverra. Phasellus ligula leo, condimentum consequat pharetra sit amet, lobortis non justo. Proin sit amet dolor gravida, posuere nisi quis, finibus lorem. Suspendisse quis arcu egestas, auctor tellus id, sodales velit. Fusce varius felis vel lacus tristique posuere ut vel nibh. Sed auctor diam porttitor turpis venenatis blandit. Morbi imperdiet sollicitudin velit a pharetra. Maecenas maximus in urna sed gravida. Sed vulputate, justo nec blandit ultrices, sapien diam condimentum nunc, volutpat rutrum leo nisl non justo.</p>
+
+</div>
+
+  <!-- End your project here-->
+
+  
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+  <script type="text/javascript" src="js/addons/imagesloaded.pkgd.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="js/addons/masonry.pkgd.min.js"></script>
+
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript">
+
+
+  startGrid = function(){
+    var $grid = $('.grid').imagesLoaded( function() {
+    // init Masonry after all images have loaded
+      $grid.masonry({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: 120
+      });
+      console.log("Masonry script done!")
+    });
+
+  };
+
+  startGrid();
+    
+
+  </script>
+
+</body>
+</html>

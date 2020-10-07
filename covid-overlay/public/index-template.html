@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Overlay</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/mdb.min.css">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+<style>
+
+  @font-face {
+    font-family: "Unify Sans Regular";
+    src: url("fonts/UnifySans_W_Rg.eot");
+    src: url("fonts/UnifySans_W_Rg.woff");
+  }
+
+  @font-face {
+    font-family: "Unify Sans Bold";
+    src: url("fonts/UnifySans_W_Bd.eot");
+    src: url("fonts/UnifySans_W_Bd.woff");
+  }
+
+  @font-face {
+    font-family: "Unify Serif Regular";
+    src: url("fonts/unifyserif-rg.eot");
+    src: url("fonts/unifyserif-rg.woff");
+  }
+
+  @font-face {
+    font-family: "Unify Serif Bold";
+    src: url("fonts/UnifySerif_Bd.eot");
+    src: url("fonts/UnifySerif_Bd.woff");
+  }
+
+  .overlay-container a {
+    color: #000;
+  }
+
+  body.overlay {
+    overflow-y: hidden;
+  }
+
+  .click-button {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 5000;
+    padding: 20px;
+    font-family: "Unify Sans Bold";
+    background: #009bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .click-button.in-text {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    z-index: 0;
+  }
+
+  .overlay-container-fluid {
+    position: fixed;
+    z-index: -100;
+    background: rgba(247,245,240,0.9);
+    overflow-x: hidden;
+    left: 2000px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .overlay-container-fluid.closed {
+    animation: fadeOut 1s;
+  }
+
+
+  @keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+  @keyframes fadeOut {
+    from {opacity: 1}
+    to {opacity: 0}
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
+
+  @keyframes opened{
+    0%   {left: 1000px;}
+    100% {left: 0;}
+  }
+
+  .overlay-container-fluid.open {
+    animation: fadeIn 1s;
+    left: 0;
+    opacity: 1;
+    z-index: 500;
+  }
+
+
+
+  /* ---- grid ---- */
+
+  .grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+
+  /* clearfix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  /* ---- grid-item ---- */
+
+  .grid-item {
+    width: 120px;
+    height: 120px;
+    float: left;
+    border: 5px hidden #f7f5f0;
+    padding: 0 10px;
+  }
+
+  .grid-item--width2 { width: 240px; }
+  .grid-item--width3 { width: 360px; }
+  .grid-item--width4 { width: 480px; }
+  .grid-item--width5 { width: 600px; }
+  .grid-item--width6 { width: 720px; }
+
+  .grid-item--height1-5 { height: 150px; }
+  .grid-item--height2 { height: 180px; }
+  .grid-item--height2-5 { height: 220px; }
+  .grid-item--height3 { height: 240px; }
+  .grid-item--height4 { height: 300px; }
+  .grid-item--height4-5 { height: 330px; }
+  .grid-item--height5 { height: 360px; }
+  .grid-item--height5-5 { height: 390px; }
+  .grid-item--height6 { height: 420px; }
+  .grid-item--height6-5 { height: 430px; }
+  .grid-item--height7 { height: 480px; }
+
+  .blank {
+    border: 0;
+  }
+
+  .headline {
+    text-align: right;
+    font-size: 40px;
+    color: #000;
+    font-family: 'Unify Sans Bold';
+    line-height: 0.9;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s forwards
+  }
+
+  .float-hed {
+      position: absolute;
+      top: 45%;
+      left: 10%;
+      right: 10%;
+      padding: 10px;
+      background: rgba(255,255,255, 0.6);
+      font-family: 'Unify Sans Bold';
+      font-size: 30px;
+      opacity: 0;
+      color: #000;
+      line-height: 1.1;
+  }
+
+  .float-hed.mid {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      right: 10%;
+      padding: 10px;
+      background: rgba(255,255,255, 0.6);
+      font-family: 'Unify Sans Bold';
+      font-size: 30px;
+      opacity: 0;
+      color: #000;
+      font-size: 25px;
+  }
+
+  .grid .quote {
+    font-family: 'Unify Sans Bold';
+    font-size: 16px;
+  }
+
+  .intro {
+    font-family: 'Unify Sans Regular';
+    font-size: 16px;
+    line-height: 1.2;
+    margin-top: 1rem;
+  }
+
+  .grid .quote em {
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .middle {
+    padding: 40px;
+  }
+
+  .label-hed {
+    width: 100%;
+    color: #000;
+    font-family: 'Unify Sans Bold';
+    font-size: 12px;
+  }
+
+  .label-hed.space {
+    padding-top: 30px;
+  }
+
+  .label-line {
+    height: 8px;
+    width: 50px;
+    background-color: #ef3e26;
+    margin: 10px 0;
+  }
+
+  .thumb-hed {
+    background: rgba(0,0,0,0.5);
+    color: #000;
+    font-family: 'Unify Sans Bold';
+    font-size: 18px;
+    background: rgba(255,255,255, 0);
+    position: absolute;
+    opacity: 0;
+    bottom: 35%;
+    right: 0;
+    padding: 10px;
+    line-height: 1.1;
+  }
+
+  .grid .quote-mark {
+    height: 35px;
+    fill: var(--theme-color,#ef3e26);
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-right: 100%;
+  }
+
+  .not-desktop {
+    display: none;
+  }
+
+  .not-mobile {
+    display: block;
+  }
+
+  .btn {
+    display: none;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .location {
+    font-weight: normal;
+    font-family: 'Unify Sans';
+    font-style: italic;
+  }
+
+
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    .grid-sizer,
+    .grid-item {
+      width: 50%;
+    }
+
+    .grid {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  }
+
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .grid {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .grid-item {
+      padding: 0 5px;
+    }
+
+    .headline {
+      font-size: 25px;
+    }
+
+    .thumb-hed {
+      opacity: 1;
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    .float-hed {
+      opacity: 1;
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 20px;
+      background: none;
+    }
+
+    .float-hed.mid {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 20px;
+      opacity: 1;
+    }
+
+    .label-hed {
+      font-size: 10px;
+    }
+
+    .label-line {
+      height: 4px;
+    }
+
+    .blank {
+      display: none;
+    }
+
+    .grid-item--width2 { width: 200px; }
+    .grid-item--width3 { width: 300px; }
+    .grid-item--width3.headline { width: 230px; }
+    .grid-item--width4 { width: 230px; }
+    .grid-item--width4.insecure { width: 350px; }
+    .grid-item--width5 { width: 600px; }
+    .grid-item--width6 { width: 720px; }
+
+
+    .grid-item--height1-5 { height: 150px; }
+    .grid-item--height2 { height: 170px; }
+    .grid-item--height3 { height: 250px; }
+    .grid-item--height4 { height: 300px; }
+    .grid-item--height4-5 { height: 330px; }
+    .grid-item--height5 { height: 380px; }
+    .grid-item--height5-5 { height: 320px; }
+    .grid-item--height6 { height: 650px; }
+    .grid-item--height7 { height: 500px; }
+    .grid-item--height2.headline { height: 200px;}
+    .grid-item--height7.graphic {height: 420px; width: 200px;}
+  }
+
+
+  @media (max-width: 575px) {
+
+    body {
+        padding: 0;
+    }
+
+    img {
+      padding-top: 20px;
+    }
+
+    .click-button {
+      right: 10px;
+      z-index: 5000;
+      padding: 10px;
+    }
+
+    .overlay-container-fluid.open {
+      display: block;
+      height: 100%;
+    }
+
+    .grid {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 70px;
+    }
+
+    .in-text {
+      display: block;
+    }
+
+    .grid-item {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .label-hed {
+      opacity: 1;
+      font-size: 15px;
+    }
+
+    .headline {
+      text-align: left;
+    }
+
+    .blank {
+      display: none;
+    }
+
+    .grid .quote-mark {
+      margin-top: 40px;
+    }
+
+    .grid .quote {
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .grid .quote em {
+      font-size: 18px;
+    }
+
+    .thumb-hed {
+      opacity: 1;
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 25px;
+    }
+
+    .float-hed {
+      opacity: 1;
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 25px;
+      background: none;
+    }
+
+    .float-hed.mid {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      padding: 0;
+      font-size: 25px;
+      opacity: 1;
+    }
+
+    .not-mobile {
+      display: none;
+    }
+
+    .not-desktop {
+      display: block;
+    }
+
+
+    .grid-item--width2 { width: 100%; }
+    .grid-item--width3 { width: 100%; }
+    .grid-item--width4 { width: 100%; }
+    .grid-item--width5 { width: 100%; }
+    .grid-item--width6 { width: 100%; }
+
+
+    .grid-item--height1-5 { height: 150px; }
+    .grid-item--height2 { height: 380px; }
+    .grid-item--height3 { height: 350px; }
+    .grid-item--height4 { height: 300px; }
+    .grid-item--height4-5 { height: 330px; }
+    .grid-item--height5 { height: 380px; }
+    .grid-item--height5-5 { height: 450px; }
+    .grid-item--height6 { height: 650px; }
+    .grid-item--height7 { height: 800px; }
+    .grid-item--height2.headline { height: 250px;}
+    .grid-item--height7.graphic {height: 600px;}
+
+  }
+
+
+</style>
+
+
+</head>
+<body>
+
+  <aside class="overlay-container">
+
+  <span class="click-button">Explore the series >></span>
+
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a laoreet orci. Praesent magna lectus, consequat vel turpis a, imperdiet sollicitudin odio. Fusce odio neque, volutpat ac ipsum in, tempus aliquet neque. In hac habitasse platea dictumst. Integer in tortor vel sapien laoreet tempor. Donec efficitur sit amet leo et laoreet. Morbi eleifend ultricies viverra. Vestibulum in diam eget lorem efficitur fringilla at a tellus. Cras aliquet at justo ut lobortis. Duis sit amet purus et purus cursus varius. Ut non massa faucibus, mollis arcu vitae, consectetur sem. Praesent interdum elementum urna, sit amet mollis mi egestas non. Mauris suscipit enim ex, non fermentum nisl laoreet quis. Vestibulum a mattis magna. Donec vestibulum, ipsum eget condimentum euismod, risus magna convallis turpis, non eleifend augue lectus sed est. Sed id ligula orci.</p>
+
+  <p>Cras interdum nulla quis euismod faucibus. Ut viverra nulla egestas tempor sagittis. Fusce turpis leo, convallis sed vehicula id, dictum ac sem. Aenean rhoncus felis id sem pretium, non euismod libero ultrices. Donec nibh erat, ultricies vel pulvinar ut, venenatis in nisl. Nullam egestas eros sed odio commodo, et aliquet sem pretium. Ut id commodo mi. Quisque lacus ipsum, bibendum vel posuere non, dignissim quis ante. Morbi venenatis odio ut placerat rutrum. Morbi lobortis condimentum lorem. Fusce porttitor quam mattis diam semper elementum. Vestibulum aliquam venenatis eros, id ornare ex volutpat ut. Sed semper consectetur varius. Praesent congue ex vel mi cursus eleifend.</p>
+
+  <p>Aenean ultricies elementum est vitae cursus. Phasellus at imperdiet orci, ac cursus magna. Curabitur finibus pellentesque mollis. Suspendisse potenti. Mauris lacinia lectus non dolor condimentum lacinia. Donec venenatis dolor lacus, et scelerisque augue sagittis a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus at tempus magna. Fusce ultrices ac eros eget fermentum. Praesent sed leo nisl. Nam eu mi vitae ligula interdum hendrerit vel ut mi. Sed posuere lorem et convallis faucibus. Nulla egestas, sem ac tincidunt interdum, metus nibh eleifend sapien, ac laoreet magna massa id ex. In et massa pretium, volutpat lorem vitae, ullamcorper lorem.</p>
+
+  <div class="overlay-container-fluid" id="fluid-container">
+  
+    <div class="grid-container">
+
+      <div class="grid">
+        <div class="grid-item grid-item--width3 grid-item--height2 headline">
+          Headline here yy over two lines yy
+          <p class="intro">Description goes here yyyyyyyyy, and here yyyyyyyyyyyyyy also maybe here yyyyyyyyyyyyy</p>
+        </div>
+        <div class="grid-item grid-item--width2 grid-item--height2-5 not-mobile">
+          <a href="#" class="story-link">
+            <div class="label-hed">TOXIC ENVIRONMENT | <span class="location">RESERVE, LA</span></div>
+            <div class="label-line"></div>
+            <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+            <img src="img/grid1.jpg">
+          </a>
+        </div>
+        <div class="grid-item grid-item--width2 grid-item--height2-5 not-mobile">
+          <a href="#" class="story-link">
+            <div class="label-hed">MEDICAL ACCESS | <span class="location">MCKINLEY, NM</span> </div>
+            <div class="label-line"></div>
+            <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+            <img src="img/grid3.jpg">
+          </a>
+        </div>
+        <div class="grid-item grid-item--width4 grid-item--height5-5">
+          <a href="#" class="story-link">
+            <div class="label-hed">CORONAVIRUS AND SYSTEMIC RACISM IN AMERICA</div>
+            <div class="label-line"></div>
+            <span class="float-hed">Two-line headline yyyy goes right here yyyyyy</span>
+            <img src="img/grid2.jpg">
+          </a>
+        </div>
+
+        <div class="grid-item grid-item--width2 grid-item--height2 not-desktop">
+          <a href="#" class="story-link">
+            <div class="label-hed">TOXIC ENVIRONMENT | <span class="location">RESERVE, LA</span></div>
+            <div class="label-line"></div>
+            <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+            <img src="img/grid1.jpg">
+          </a>
+        </div>
+        <div class="grid-item grid-item--width2 grid-item--height2 not-desktop">
+          <a href="#" class="story-link">
+            <div class="label-hed">MEDICAL ACCESS | <span class="location">MCKINLEY, NM</span> </div>
+            <div class="label-line"></div>
+            <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+            <img src="img/grid3.jpg">
+          </a>
+        </div>
+
+        <div class="grid-item grid-item--width2 grid-item--height7 graphic">
+          <a href="#" class="story-link">
+            <img class="not-mobile" src="img/compare.jpg">
+            <img class="not-desktop" src="img/compare-mobile.jpg">
+          </a>
+        </div>
+        <div class="grid-item grid-item--width2 grid-item--height3">
+          <a href="#" class="story-link">
+            <div class="label-hed">RACIST POLICIES | <span class="location">SAN FRANCISCO</span></div>
+            <div class="label-line"></div>
+            <div class="thumb-hed">Headline here yyyyyyy over two lines yyyyyyy</div>
+            <img src="img/grid6.jpg">
+          </a>
+        </div>
+        <div class="grid-item grid-item--width2 grid-item--height2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.9 35.3" role="img" class="quote-mark">
+              <title>Quote icon</title>
+              <style>
+                .icon--quote {
+                  fill: var(--theme-color, #ef3e26);
+                }
+              </style>
+              <path class="icon icon--quote" d="M174.42,226.32c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C183.92,222.42,179.72,226.32,174.42,226.32Zm24.3,0c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C208.22,222.42,204,226.32,198.72,226.32Z" transform="translate(-164.31 -191.02)"></path>
+            </svg>
+          <span class="quote">COVID was never the great equalizer. It was the great magnifier.<br><em>- Attribution here</em></span>
+        </div>
+        <div class="grid-item blank grid-item--height4"></div>
+        <div class="grid-item grid-item--width3 grid-item--height7">
+          <a href="#" class="story-link">
+            <div class="label-hed space">INADEQUATE HOUSING | <span class="location">ESSEX COUNTY, NJ</span></div>
+            <div class="label-line"></div>
+            <span class="float-hed mid">Two-line headline yy goes right here yyyy</span>
+            <img src="img/grid4.jpg">
+          </a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.9 35.3" role="img" class="quote-mark">
+                <title>Quote icon</title>
+                <style>
+                  .icon--quote {
+                    fill: var(--theme-color, #ef3e26);
+                  }
+                </style>
+                <path class="icon icon--quote" d="M174.42,226.32c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C183.92,222.42,179.72,226.32,174.42,226.32Zm24.3,0c-5.9,0-10.1-5.1-10.1-12.5,0-9.3,6.6-17.9,17.5-22.8l1.5,2.8c-8.9,4.9-12.6,9.8-12.8,17a8.6,8.6,0,0,1,5.3-1.7,8.11,8.11,0,0,1,8.1,8.3C208.22,222.42,204,226.32,198.72,226.32Z" transform="translate(-164.31 -191.02)"></path>
+              </svg>
+            <span class="quote">We've constructed American cities and suburbs in a way that basically gives white people greater access to space ... that's not just a luxury, it's a health resource.<br><em>- Attribution here</em></span>
+        </div>
+        <div class="grid-item grid-item--width4 grid-item--height5 insecure">
+          <a href="#" class="story-link">
+            <div class="label-hed space">FOOD INSECURITY | <span class="location">IMPERIAL VALLEY, CA</span></div>
+            <div class="label-line"></div>
+            <span class="float-hed">Two-line headline yyyy goes right here yyyyyy</span>
+            <img src="img/covid-pic2.jpg">
+          </a>
+        </div>
+        <div class="grid-item blank grid-item--height4"></div>
+    
+    </div>
+
+  </div>
+
+  
+</div>
+
+
+  <p>Donec lobortis magna lacus, pellentesque aliquet risus porta sed. Duis eu sodales sem. Maecenas rhoncus a magna ornare suscipit. Morbi placerat, elit a fringilla pretium, sem tortor egestas enim, quis laoreet ipsum erat et erat. Ut in risus augue. Integer quam felis, vehicula in malesuada vitae, placerat quis ipsum. Phasellus interdum urna erat, sed eleifend dui consequat ultricies. Duis vel urna sed ante feugiat blandit ac quis nisi. Duis volutpat pulvinar mi, at placerat nulla fermentum fermentum. Nunc luctus blandit mauris a eleifend. Praesent dictum magna ex, sed consequat odio efficitur quis. Praesent ut sem dui. Nam porttitor, dui at finibus vehicula, velit dolor bibendum massa, id rhoncus quam lorem porttitor urna. Morbi vulputate leo ante, gravida posuere lacus vestibulum quis.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+  <p>Etiam aliquet vel turpis quis dictum. Fusce in metus vel velit pellentesque maximus. Quisque et sapien nec augue pulvinar sodales. Vivamus vitae orci in libero tempus mattis sit amet ut neque. Etiam leo mi, ullamcorper nec vulputate id, commodo id dolor. Ut et tempus lorem. Morbi pretium libero iaculis congue tincidunt. Quisque sit amet sapien faucibus, elementum massa et, aliquam elit. Donec euismod rutrum viverra. Morbi bibendum enim in nibh placerat laoreet. Etiam vel vehicula quam, sit amet hendrerit diam. Vivamus vehicula aliquet tortor at varius. Mauris porttitor imperdiet odio, facilisis rutrum tellus porta eu. Nunc congue imperdiet nunc a tempor. Ut auctor volutpat eleifend.</p>
+
+</aside>
+
+  
+
+  
+
+
+
+
+  <script type="text/javascript" src="js/addons/imagesloaded.pkgd.min.js"></script>
+
+  <script type="text/javascript" src="js/addons/masonry.pkgd.min.js"></script>
+
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript">
+
+
+  startGrid = function(){
+    var $grid = $('.grid').imagesLoaded( function() {
+    // init Masonry after all images have loaded
+      $grid.masonry({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: 120
+      });
+      console.log('Masonry script done!')
+    });
+
+  };
+
+  document.addEventListener('DOMContentLoaded', startGrid);
+    
+
+  </script>
+
+</body>
+</html>
