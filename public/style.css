@@ -41,7 +41,7 @@ body {
 
 .interactive-container {
   background-color: var(--cr-off-white);
-  color: var(--gannett-dark-grey);
+  color: var(--black)!important;
   /*   padding-top: 20px;  */
 
   min-height: 100vh;
@@ -99,7 +99,8 @@ body {
   padding-bottom: 5px;
   z-index: 3;
   position: relative;
-  background-color: var(--cr-off-white);;
+  background-color: var(--cr-off-white);
+  color: var(--black)!important;
 }
 
 .frace-fcounty, .frace-ecounty {
@@ -110,6 +111,7 @@ body {
   position: relative;
   z-index: 2;
   background-color: var(--cr-off-white);
+  color: var(--black)!important;
 }
 
 .exp-race {
@@ -121,6 +123,7 @@ body {
   position: relative;
   z-index: 1;
   background-color: var(--cr-off-white);
+  color: var(--black)!important;
   transition-duration: 1s;
   width: 80%;
 }
@@ -154,8 +157,6 @@ body {
   color: var(--cr-off-white);
   border: 0px solid var(--gannett-dark-grey);
   padding: 3%;
-  /*   border-radius: 20px;  */
-
   box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 }
 
@@ -170,7 +171,7 @@ body {
 
 .county-dropdowns select {
   background: transparent;
-  color: var(--gannett-dark-grey);
+  color: var(--black)!important;
   border: 2px solid;
   border-radius: 5px;
   margin: 20px auto;
@@ -359,6 +360,25 @@ body {
   border-bottom: 3px solid var(--cr-red);
   text-decoration: none;
 }
+
+/* .attribution */
+.attribution {
+  width: 100%;
+  color: var(--black);
+  font-size: .7rem;
+  font-style: oblique;
+  position: relative;
+  bottom: -13vh;
+}
+
+.attribution p {
+  width: 90%;
+  margin: auto;
+  opacity: .7;
+}
+
+
+
 /* Responsive */
 
 /* mobile breakpoint */
