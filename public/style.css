@@ -2,9 +2,10 @@
   --cr-red: #EF3E26;
   --gannett-light-blue: #B9E1FF;
 	--gannett-dark-blue: #0A32A0;
-	--gannett-dark-grey: #404040;
+  --gannett-dark-grey: #404040;
 	--gannett-light-grey: #d7d7d7;
 	--cr-off-white: #f7f5f0;
+  --black: #000;
 }
 
 .interactive-container {
@@ -39,8 +40,8 @@ body {
 }
 
 .interactive-container {
-  background-color: var(--gannett-dark-grey);
-  color: var(--cr-off-white);
+  background-color: var(--cr-off-white);
+  color: var(--gannett-dark-grey);
   /*   padding-top: 20px;  */
 
   min-height: 100vh;
@@ -98,7 +99,7 @@ body {
   padding-bottom: 5px;
   z-index: 3;
   position: relative;
-  background-color: var(--gannett-dark-grey);;
+  background-color: var(--cr-off-white);;
 }
 
 .frace-fcounty, .frace-ecounty {
@@ -108,7 +109,7 @@ body {
   flex-direction: row;
   position: relative;
   z-index: 2;
-  background-color: var(--gannett-dark-grey);
+  background-color: var(--cr-off-white);
 }
 
 .exp-race {
@@ -119,7 +120,7 @@ body {
   margin: -230px auto auto auto;
   position: relative;
   z-index: 1;
-  background-color: var(--gannett-dark-grey);
+  background-color: var(--cr-off-white);
   transition-duration: 1s;
   width: 80%;
 }
@@ -151,9 +152,10 @@ body {
 .cta button {
   background-color: var(--cr-red);
   color: var(--cr-off-white);
-  border: 3px solid;
+  border: 0px solid var(--gannett-dark-grey);
   padding: 3%;
-  border-radius: 20px;
+  /*   border-radius: 20px;  */
+
   box-shadow: 0 5px 10px rgba(0,0,0,0.5);
 }
 
@@ -168,7 +170,7 @@ body {
 
 .county-dropdowns select {
   background: transparent;
-  color: var(--cr-off-white);
+  color: var(--gannett-dark-grey);
   border: 2px solid;
   border-radius: 5px;
   margin: 20px auto;
@@ -202,11 +204,14 @@ body {
 
 .card {
   background-color: var(--cr-off-white);
-  color: var(--gannett-dark-grey);
+  color: var(--black);
   width: 90%;
   height: 95%!important;
   margin: auto;
+  /*
   border-radius: 30px;
+  */
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -216,7 +221,7 @@ body {
 }
 
 .card p {
-  color: var(--gannett-dark-grey);
+  color: var(--black);
   width: 85%;
 }
 
@@ -227,7 +232,7 @@ body {
   padding-bottom: 5%;
   width: 100%;
   border-bottom: 3px solid var(--cr-red);
-  color: var(--gannett-dark-grey);
+  color: var(--black);
 }
 
 .card hr {
@@ -245,6 +250,7 @@ body {
 .card p span.number {
   background-color: yellow;
   font-weight: bold;
+  color: var(--black);
 }
 
 .var-pagination {
@@ -328,11 +334,11 @@ body {
   height: 100%;
   width: 100px;
   background-color: var(--cr-off-white);
-  border-right: 3px solid var(--gannett-dark-grey);
+  border-right: 3px solid var(--cr-off-white);
 }
 
 .tab button.selected {
-  background-color: var(--gannett-dark-grey);
+  background-color: var(--cr-off-white);
   color: var(--cr-off-white);
 }
 
@@ -390,7 +396,8 @@ body {
   }
 
   .cta button {
-    border-radius: 60px;
+    /*     border-radius: 60px;    */
+
     font-size: 1.1rem;
     margin-top: 30px;
   }
