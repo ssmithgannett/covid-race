@@ -386,7 +386,7 @@ jQuery.ajax({
 }// end pullData(usat)
 
 function pullData2(milken) {
-
+  console.log(milken);
     jQuery('.county-select').on('change',function() {
 
   var milkenCounty;
@@ -418,6 +418,7 @@ function pullData2(milken) {
     var enteredCounty = jQuery(this).val();
 
     if (milkenState == enteredState && milkenCounty == enteredCounty) {
+      console.log('!');
         jQuery('.var1 .ecounty-context').text(variable1);
         jQuery('.var2 .ecounty-context').text(variable2);
         jQuery('.var3 .ecounty-context').text(variable3);
